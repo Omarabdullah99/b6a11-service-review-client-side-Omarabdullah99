@@ -1,11 +1,32 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-  const {createUser} = useContext(AuthContext)
+  const {createUser,updatProfile} = useContext(AuthContext)
+
+  const [error,setError]=useState('')
+  const [userName,setUserName]=useState('')
+  const [image,setImage]=useState('')
+
+  const handelName=(e)=>{
+    setUserName(e.target.value)
+  }
+  const handleImage=(e)=>{
+    setImage(e.target.value)
+  }
+  updatProfile(userName,image)
+    .then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+  // console.log(userName,image)
 
     const handleSubmit=(event)=>{
       event.preventDefault()
@@ -20,6 +41,8 @@ const Register = () => {
         // Signed in 
         const user = userCredential.user;
         console.log(user)
+        updatProfile()
+        setError('')
         form.reset()
         // ...
       })
@@ -27,8 +50,14 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage)
+        setError(errorMessage)
         // ..
       });
+
+      if(password.length <6){
+        setError('passwored should be 6 charecter')
+        return;
+    }
 
     }
     return (
@@ -36,7 +65,7 @@ const Register = () => {
       <div className="hero-content flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Register now!</h1>
-          <p className='text-xl font-bold text-red-400'></p>
+          <p className='text-3xl font-bold text-red-400'>{error}</p>
           
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -46,14 +75,14 @@ const Register = () => {
           <label className="label">
             <span className="label-text"> Full Name</span>
           </label>
-          <input type="text" name='name' placeholder="user name" className="input input-bordered" required />
+          <input onBlur={handelName} type="text" name='name' placeholder="user name" className="input input-bordered" required />
         </div>
     
         <div className="form-control">
         <label className="label">
           <span className="label-text"> PhotoURl</span>
         </label>
-        <input  type="text" name='photoURL' placeholder="Phot URL" className="input input-bordered" required />
+        <input onBlur={handleImage} type="text" name='photoURL' placeholder="Phot URL" className="input input-bordered" required />
       </div>
     
             <div className="form-control">
