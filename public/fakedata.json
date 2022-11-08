@@ -1,0 +1,51 @@
+[
+    {
+        "title":"Kacchi Biriyani (Mutton Biriyani)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-02-768x512.jpg.webp",
+        "price":"250tk",
+        "description":"In Bangladesh and many parts of India and Pakistan, different types of rice and meat-based 'Biryani' recipes are prepared. Among all those, the Mutton Kacchi Biryani recipe is highly attractive to food lovers. It contains a good amount of mutton, which is usually double the quantity of rice. Thus the recipe provides a meal full of protein and food caloric value. It is the most traditional food, prepared for high-level entertainment during marriage reception, parties, or grand occasions. Its specialty is the cooking phase, while the lid is never turned on, instead sealed to contain all scents of the ingredients within the food until the meal is served."
+    },
+
+    {
+        "title":"Shorshe Ilish (Hilsa Fish with Mustard Curry)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-01-768x512.jpg.webp",
+        "price":"350tk",
+        "description":"lish bhaape, also known as Shorshe lish bhapa (or bhaape) meaning steamed mustard hilsa, is a Bengali recipe of hilsa fish (a type of shad) steamed in a potent mustard, doi (yoghurt) and coconut paste. Even though it looks very polished, it is a fairly easy recipe to execute, requiring few ingredients, no special technique, and very little time.It is especially convenient for entertaining guests. You can keep everything ready in a tiffin box, and just as the guests are sitting down for the first course you can put the container to steam. It will be ready by the time the guests are finishing the vegetable courses. You can then bring this to the table and open the lid to reveal the beautiful steaming hilsa while your guests are suitably excited and impressed."
+    },
+
+    {
+        "title":"Bhuna Khichuri with Dim Bhaji (Yellow Rice with Omelette)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-04-768x512.jpg.webp",
+        "price":"100tk",
+        "description":"Bhuna khichuri is a pure Bengali delicacy and it is also known as bhuni khichuri. Here both the words ‘Bhuna’ and ‘Bhuni’ means fried and ‘khichuri’ means a rice-lentil mishmash. For the dry and grainy texture like pulao, rice and lentil both are fried together thoroughly before cooking in water and hence its specifically called Bhuna khichuri or bhuni khichuri.Bhuna khichuri recipe is prepared in myriad ways. Every house has their own composition and preferences in preparing any khichuri recipe. In many houses, bhuna khichuri is prepared with different types of lentils like masoor dal (red lentils) or chana dal (split chickpea) other than moong dal (yellow lentils)."
+
+    },
+
+
+    {
+        "title":"Dal (Lentil Soup)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-06-768x512.jpg.webp",
+        "price":"100tk",
+        "description":"Dal is another staple of Bangladeshi cuisine. Lentils arehigh in protein, and can easily be paired with rice or rotis.Masoor dal and Moong dal are two of many types of lentils that are used in Bangladeshi cuisine, all cooked in a similar fashion. There are two ways to cook dal. One is slightly soupier, and the other has a thicker consistency, similar to porridge. The latter is known as Chocchori Dal.The addition of coriander brings a freshness to this dish. Local cuisines also enhance the recipe by adding dried fruits, such as jujubes and raw mangoes to the soup to give it tanginess."
+
+    },
+
+    {
+        "title":"Bhorta (Mashed Vegetables with Spices)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-07-768x512.jpg.webp",
+        "price":"50tk",
+        "description":"Households across Bangladesh eat Bhortas as a starter. Bhortas are mashed vegetables (or sometimes fish), mixed with a number of spices.The most common Bhortas are made from potatoes, eggplants, beans, pumpkins, and green bananas. Dry fish Bhorta, or Shutki Bhorta, is popular in Chattogram, Sylhet, Khulna, and other parts of the country.If you cannot stand the strong smell of dry fish, you can always try other Bhortas made from Taki fish (Spotted Snakehead fish) or shrimp. Egg Bhortas are also popular among intrigued foodies. Eggs from chicken, duck, and fish all make amazing Bhortas when paired with harmonious spices and herbs."
+
+    },
+
+    {
+        "title":"Haleem (Mixed Lentil Soup and Meat)",
+        "img":"https://nomadparadise.com/wp-content/uploads/2021/03/bangladeshi-food-10-1024x683.jpg.webp",
+        "price":"150tk",
+        "description":"Even though the sales of haleem skyrocket during Ramadan, this is a dish that is enjoyed all year round. Traditional haleem is made with a mixture of wheat and lentils, such as masoor, moong, and chickpeas.A generous amount of shredded meat is added to the mixture, and some recipes even call for the inclusion of livers and hearts to enhance the taste. The finished dish is garnished with a slice of lemon, caramelized onion, and coriander. The dish is best served hot."
+
+    }
+
+
+    
+]
