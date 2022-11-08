@@ -1,7 +1,20 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+  // const {user} = useContext(AuthContext)
+  // {
+  //   user?.displayName ? 
+  //   <div>
+  //   <h1>{user.displayName}</h1>
+  //   </div>
+  //   :
+  //   <div>
+  //   <h1>nai</h1>
+  //   </div>
+  // }
     return (
       <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -26,7 +39,8 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <h1>edit kora lagbe</h1>
+   <h1>kaj baki</h1>
+  
   </div>
 </div>
     );
