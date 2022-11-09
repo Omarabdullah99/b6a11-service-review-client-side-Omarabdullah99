@@ -50,10 +50,13 @@ const Header = () => {
     user?.uid ?
     <div>
     <button onClick={handleLogOut}>Logout</button>
+    <Link to='/myreview'><button>MyReview</button></Link>
     </div>
     :
     <div>
-    <button>Login</button>
+    <Link to='/login'><button>Login</button></Link>
+    
+    
     </div>
    }
   
