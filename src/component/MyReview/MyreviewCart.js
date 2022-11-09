@@ -1,10 +1,11 @@
 import React from 'react';
 
-const MyreviewCart = ({review}) => {
+const MyreviewCart = ({review,handleDelet}) => {
+    console.log(review)
     return (
         <div className='flex gap-x-10 items-center my-10'>
             <div className="button">
-            <button className="btn btn-error">Delete</button>
+            <button onClick={()=> handleDelet(review._id)} className="btn btn-error">Delete</button>
             </div>
             <div className="review-details flex items-center ">
             <img src={review.ReviewrImage} alt="" className='w-20 rounded-full' />
