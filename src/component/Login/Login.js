@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaGoogle} from "react-icons/fa";
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+  const provider = new GoogleAuthProvider();
+   const {logIn,googleSignIn} = useContext(AuthContext)
+   const [error,setError]=useState('')
+
+   const handleGoogleSignIn =()=>{
+    googleSignIn(provider)
+    .then(result =>{
+      const user=result.user;
+      console.log(user)
+     
+    })
+    .cathc(error => console.error(error))
+  }
+
     const handleSubmit=(event)=>{
         event.preventDefault()
         const form= event.target;
@@ -9,12 +27,30 @@ const Login = () => {
         const password=form.password.value;
         console.log(email,password)
 
+        logIn(email,password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user)
+          setError('')
+          form.reset()
+           
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage)
+          setError(errorMessage)
+        });
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col ">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
+      <p className='text-xl font-bold text-red-400'>{error} </p>
       
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -38,6 +74,7 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
+      <button onClick={handleGoogleSignIn} className='btn btn-primary mt-5 w-9/12 mx-auto'>Sign In Google <span className='ml-5 text-xl'><FaGoogle></FaGoogle></span> </button>
     </div>
   </div>
 </div>
