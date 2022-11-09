@@ -7,11 +7,13 @@ import Main from "../layout/Main";
 import Blog from "../component/Blog/Blog";
 import ServiceDetails from "../component/ServicesDetails/ServiceDetails";
 import MyReview from "../component/MyReview/MyReview";
+import ErrorPage from "../component/ErrorPage/ErrorPage";
 
 const router=createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

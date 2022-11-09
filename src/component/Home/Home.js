@@ -7,6 +7,7 @@ import HomeCart from './HomeCart';
 
 const Home = () => {
     const [services,setServices]=useState([])
+   
     useEffect(() => {
       fetch("http://localhost:4001/serviceshome")
       .then(res => res.json())
@@ -25,7 +26,7 @@ const Home = () => {
         
         <div className='grid grid-cols-3 gap-5'>
             {
-                services?.map(service=> <HomeCart service={service}></HomeCart>)
+                services?.map(service=> <HomeCart key={service._id} service={service}></HomeCart>)
             }
             
         </div>
