@@ -11,15 +11,28 @@ const ServiceDetails = () => {
   console.log(user);
   const { title, _id, img, price, description } = useLoaderData();
   const [users, setUsers] = useState([]);
+  const [depend,setDepend]=useState(false)
+  console.log({depend})
+
+ 
 
   useEffect(() => {
-    fetch("http://localhost:4001/reviews")
+    fetch(`http://localhost:4001/reviews/${_id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data)
         setUsers(data)
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:4001/reviews/${_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log({data})
+        setUsers(data)
+      });
+  }, [depend]);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -53,7 +66,18 @@ const ServiceDetails = () => {
         console.log(data);
       })
       .catch((err) => console.error(err));
+
+      fetch("http://localhost:4001/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        // const datauser=data.revers()
+        console.log(data)
+        setUsers(data)
+      });
+
+      setDepend(!depend)
   };
+
 
   return (
     <div className="w-5/6 mx-auto">
