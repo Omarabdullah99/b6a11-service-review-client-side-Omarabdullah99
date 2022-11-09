@@ -6,6 +6,7 @@ import Register from "../component/Register/Register";
 import Main from "../layout/Main";
 import Blog from "../component/Blog/Blog";
 import ServiceDetails from "../component/ServicesDetails/ServiceDetails";
+import MyReview from "../component/MyReview/MyReview";
 
 const router=createBrowserRouter([
     {
@@ -26,6 +27,11 @@ const router=createBrowserRouter([
                 path:'/services/:id',
                 element:<ServiceDetails></ServiceDetails>,
                 loader:({params})=>fetch(`http://localhost:4001/services/${params.id}`)
+
+            },
+            {
+                path:'/myreview',
+                element:<MyReview></MyReview>
 
             },
             {
