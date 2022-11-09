@@ -25,14 +25,14 @@ const ServiceDetails = () => {
       });
   }, []);
 
-  useEffect(() => {
-    fetch(`http://localhost:4001/reviews/${_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log({data})
-        setUsers(data)
-      });
-  }, [depend]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:4001/reviews/${_id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log({data})
+  //       setUsers(data)
+  //     });
+  // }, [depend]);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -75,7 +75,7 @@ const ServiceDetails = () => {
         setUsers(data)
       });
 
-      setDepend(!depend)
+      // setDepend(!depend)
   };
 
 

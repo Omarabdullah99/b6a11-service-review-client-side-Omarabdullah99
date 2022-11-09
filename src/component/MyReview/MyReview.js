@@ -37,7 +37,7 @@ const MyReview = () => {
            <h1 className='text-3xl font-bold'>You have added {reviews.length} review</h1>
            <div>
            {
-            reviews.length && reviews.map(review=> <MyreviewCart key={review._id} review={review} handleDelet={handleDelet}></MyreviewCart>)
+            reviews?.length && reviews.map(review=> <MyreviewCart key={review._id} review={review} handleDelet={handleDelet}></MyreviewCart>)
            }
            </div>
            

@@ -8,6 +8,7 @@ import Blog from "../component/Blog/Blog";
 import ServiceDetails from "../component/ServicesDetails/ServiceDetails";
 import MyReview from "../component/MyReview/MyReview";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
+import AddServices from "../component/AddServices/AddServices";
 
 const router=createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router=createBrowserRouter([
                 path:'/myreview',
                 element:<MyReview></MyReview>
 
+            },
+            {
+               path:'/addservices',
+               element:<AddServices></AddServices>
             },
             {
                 path:'/blog',
