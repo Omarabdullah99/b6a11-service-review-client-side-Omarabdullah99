@@ -1,5 +1,8 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 // <p>{service.description.slice(0,100)}</p>
 
 const HomeCart = ({service}) => {
@@ -8,7 +11,13 @@ const HomeCart = ({service}) => {
        
        <div className='border p-10 my-10'>
        <h1 className='text-xl font-bold'>{service.title}</h1>
-       <img src={service.img} alt="" className='w-64 rounded-xl my-3' />
+
+       <PhotoProvider>
+      <PhotoView src={service.img}>
+        <img src={service.img} alt="" />
+      </PhotoView>
+    </PhotoProvider>
+      
        {service.description.length > 100 ? (
         <p>
           {service.description.slice(0, 100) + "..."}

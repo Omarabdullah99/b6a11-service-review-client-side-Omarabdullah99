@@ -36,7 +36,7 @@ const AddServices = () => {
         .catch(err => console.error(err))
     } 
     return (
-        <div>
+        <div className='mb-20'>
         <form onSubmit={handlePlaceOrder}> 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
             <input name="title" type="text" placeholder="title" className="input input-ghost w-full  input-bordered" />

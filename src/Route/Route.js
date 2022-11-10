@@ -9,6 +9,7 @@ import ServiceDetails from "../component/ServicesDetails/ServiceDetails";
 import MyReview from "../component/MyReview/MyReview";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import AddServices from "../component/AddServices/AddServices";
+import Update from "../component/Update/Update";
 
 const router=createBrowserRouter([
     {
@@ -45,6 +46,11 @@ const router=createBrowserRouter([
                 path:'/blog',
                 element:<Blog></Blog>
 
+            },
+            {
+                path:'/update/:id',
+                element:<Update></Update>,
+                loader:({params})=>fetch(`http://localhost:4001/review/${params.id}`)
             },
             {
                 path:'/login',

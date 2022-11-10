@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyreviewCart = ({review,handleDelet}) => {
     console.log(review)
@@ -13,7 +14,7 @@ const MyreviewCart = ({review,handleDelet}) => {
             </div>
             <h1 className='text-lg '>Reviwe Item:{review.serviceName}</h1>
             <h1 className='text-xl font-extrabold'>Client Review:{review.message}</h1>
-            <button className="btn btn-outline btn-success">Update</button>
+            <Link to={`/update/${review._id}`}><button className="btn btn-outline btn-success">Update</button></Link>
             
 
         </div>

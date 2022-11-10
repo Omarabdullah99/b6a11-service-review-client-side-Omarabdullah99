@@ -51,6 +51,7 @@ const Header = () => {
     <div>
     <button onClick={handleLogOut}>Logout</button>
     <Link to='/myreview'><button>MyReview</button></Link>
+    <Link to='/addservices'><button>AddServices</button></Link>
     </div>
     :
     <div>
