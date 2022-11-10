@@ -74,13 +74,14 @@ const Login = () => {
           .then(data =>{
             console.log(data.token)
             localStorage.setItem('CookingToken',data.token)
+             navigate(from, {replace:true})
           })
          
           console.log(user)
           setLoader(false)
           setError('')
           form.reset()
-          // navigate(from, {replace:true})
+         
            
           // ...
         })
