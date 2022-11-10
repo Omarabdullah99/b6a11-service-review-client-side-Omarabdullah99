@@ -34,7 +34,9 @@ const MyReview = () => {
     }
     return (
         <div className='w-4/5 mx-auto'> 
-           <h1 className='text-3xl font-bold'>You have added {reviews.length} review</h1>
+           {
+            reviews.length ? <h1>You have {reviews.length}</h1> : <p>No Revews were added</p>
+           }
            <div>
            {
             reviews?.length && reviews.map(review=> <MyreviewCart key={review._id} review={review} handleDelet={handleDelet}></MyreviewCart>)
