@@ -18,7 +18,7 @@ const Header = () => {
       <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost lg:hidden">
+      <label tabIndex={0} className="btn btn-ghost lg:hidden p-2 md:p-[unset]">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
@@ -28,7 +28,7 @@ const Header = () => {
        
       </ul>
     </div>
-   <Link to='/'><h1  className='text-xl italic flex items-center md:text-2xl'><span><img src={logo} alt="logo" className='w-44' /></span> Rosui Ghor </h1></Link> 
+   <Link to='/'><h1  className='text-xl italic flex items-center md:text-2xl'><span><img src={logo} alt="logo" className='w-20 md:w-44' /></span> Rosui Ghor </h1></Link> 
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0 text-2xl">
@@ -41,7 +41,7 @@ const Header = () => {
    {
     user?.uid ?
     <div>
-    <button onClick={handleLogOut}>Logout</button>
+    <button onClick={handleLogOut} className="mr-10 md:mr-[unset]">Logout</button>
     <Link to='/myreview'><button className='mx-1 lg:mx-5'>MyReview</button></Link>
     <Link to='/addservices'><button>AddServices</button></Link>
     </div>
