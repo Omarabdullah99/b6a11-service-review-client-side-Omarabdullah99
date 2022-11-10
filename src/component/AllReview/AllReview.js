@@ -5,7 +5,7 @@ const AllReview = ({userdata}) => {
     return (
         <div>
             <h1>Reviwe Item {userdata.serviceName}</h1>
-            <img src={userdata.ReviewrImage} alt="" />
+            <img src={userdata.ReviewrImage} alt="" className='w-40' />
             <h1>Client Name:{userdata.ReviwerName}</h1>
             <h1 className='text-xl font-bold'>Review Food:{userdata.message}</h1>
         </div>

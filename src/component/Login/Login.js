@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle} from "react-icons/fa";
+import { FaGoogle, FaLessThanEqual} from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
    const {logIn,googleSignIn} = useContext(AuthContext)
    const [error,setError]=useState('')
+   const [loader,setLoader]=useState(false)
 
    const navigate=useNavigate()
    const location=useLocation()
@@ -20,6 +22,7 @@ const Login = () => {
     .then(result =>{
       const user=result.user;
       console.log(user)
+     
       navigate(from, {replace:true})
      
     })
@@ -28,6 +31,7 @@ const Login = () => {
 
     const handleSubmit=(event)=>{
         event.preventDefault()
+        setLoader(true)
         const form= event.target;
         const email=form.email.value;
         const password=form.password.value;
@@ -37,7 +41,9 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+         
           console.log(user)
+          setLoader(false)
           setError('')
           form.reset()
           navigate(from, {replace:true})
@@ -46,6 +52,7 @@ const Login = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
+          setLoader(false)
           const errorMessage = error.message;
           console.log(errorMessage)
           setError(errorMessage)
@@ -84,6 +91,15 @@ const Login = () => {
       <button onClick={handleGoogleSignIn} className='btn btn-primary mt-5 w-9/12 mx-auto'>Sign In Google <span className='ml-5 text-xl'><FaGoogle></FaGoogle></span> </button>
     </div>
   </div>
+{
+  loader? 
+  
+  <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+  :
+  <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400 hidden"></div>
+
+}
+
 </div>
     );
 };

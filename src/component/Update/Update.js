@@ -1,10 +1,16 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Update = () => {
     const data=useLoaderData()
+    const notify = () =>  toast.success("update successfull !", {
+        position: toast.POSITION.TOP_CENTER
+      });
    
-    const Navigate = useNavigate()
+    // const Navigate = useNavigate()
     console.log(data)
 
     const HandelToEditReview = (e) =>{
@@ -25,9 +31,12 @@ const Update = () => {
             body: JSON.stringify(details),
         })
         .then(res=>res.json())
-        .then(data => {if(data.modifiedCount>0){
-               alert('succes ful add')
-                Navigate('/myreview');
+        .then(data => {if(data.modifiedCount>=0){
+            //    alert('succes ful add')
+            notify()
+           
+
+                // Navigate('/myreview');
             }
             });
             
@@ -42,7 +51,7 @@ const Update = () => {
 
         
     </form>
-            
+    <ToastContainer />   
         </div>
     );
 };

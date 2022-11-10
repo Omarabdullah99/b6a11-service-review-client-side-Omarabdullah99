@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
+
 const Register = () => {
 
   const {createUser,updatProfile} = useContext(AuthContext)
@@ -11,6 +12,7 @@ const Register = () => {
   const [error,setError]=useState('')
   const [userName,setUserName]=useState('')
   const [image,setImage]=useState('')
+  const [loader,setLoader]=useState(false)
 
   const handelName=(e)=>{
     setUserName(e.target.value)
@@ -30,6 +32,7 @@ const Register = () => {
 
     const handleSubmit=(event)=>{
       event.preventDefault()
+      setLoader(true)
       const form= event.target;
       const name=form.name.value;
       const photoURL=form.photoURL.value
@@ -40,7 +43,10 @@ const Register = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+       
+        
         console.log(user)
+        setLoader(false)
         updatProfile()
         setError('')
         form.reset()
@@ -48,6 +54,7 @@ const Register = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
+        setLoader(false)
         const errorMessage = error.message;
         console.log(errorMessage)
         setError(errorMessage)
@@ -107,6 +114,15 @@ const Register = () => {
           </form>
         </div>
       </div>
+
+      {
+        loader? 
+        
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+        :
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400 hidden"></div>
+      
+      }
     </div>
     );
 };

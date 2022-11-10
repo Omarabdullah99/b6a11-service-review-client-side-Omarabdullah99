@@ -1,6 +1,11 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddServices = () => {
+    const notify = () =>  toast.success("add service placed", {
+        position: toast.POSITION.TOP_CENTER
+      });
     const handlePlaceOrder = event => {
         event.preventDefault();
         const form = event.target;
@@ -28,7 +33,9 @@ const AddServices = () => {
         .then(data => {
             
             if(data.acknowledged){
-                alert('add service placed')
+                // alert('add service placed')
+                notify()
+               
                 form.reset()
             }
             console.log(data)
@@ -47,6 +54,7 @@ const AddServices = () => {
 
         <input className='btn' type="submit" value="Add Services" />
     </form>
+    <ToastContainer />
         </div>
     );
 };

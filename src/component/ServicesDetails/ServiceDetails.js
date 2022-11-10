@@ -5,34 +5,17 @@ import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import AllReview from "../AllReview/AllReview";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
+  const notify = () =>  toast.success("review added", {
+    position: toast.POSITION.TOP_CENTER
+  });
   const { title, _id, img, price, description } = useLoaderData();
   const [users, setUsers] = useState([]);
-  const [depend,setDepend]=useState(false)
-  console.log({depend})
-
- 
-
-  useEffect(() => {
-    fetch(`http://localhost:4001/reviews/${_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        setUsers(data)
-      });
-  }, []);
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:4001/reviews/${_id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log({data})
-  //       setUsers(data)
-  //     });
-  // }, [depend]);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -60,23 +43,25 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("ordered placed");
+          // alert("Review  placed");
+          notify()
           form.reset();
         }
         console.log(data);
       })
       .catch((err) => console.error(err));
 
-      fetch("http://localhost:4001/reviews")
+      
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:4001/reviews/${_id}`)
       .then((res) => res.json())
       .then((data) => {
-        // const datauser=data.revers()
         console.log(data)
         setUsers(data)
       });
-
-      // setDepend(!depend)
-  };
+  }, []);
 
 
   return (
@@ -127,6 +112,7 @@ const ServiceDetails = () => {
           <p className="text-xl font-bold m">Please login to add a review</p>
         </Link>
       )}
+      <ToastContainer />
     </div>
   );
 };
