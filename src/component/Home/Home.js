@@ -24,7 +24,7 @@ const Home = () => {
         <h1 className='text-3xl text-center font-bold tracking-wide text-blue-600 '>Here is my Services.You can visti it</h1>
         <Link to="/services"> <button className="btn btn-outline btn-primary mt-5 ml-10 ">See All Services</button></Link>
         
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
             {
                 services?.map(service=> <HomeCart key={service._id} service={service}></HomeCart>)
             }

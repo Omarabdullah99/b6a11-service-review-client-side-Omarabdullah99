@@ -14,8 +14,13 @@ const ServiceDetails = () => {
   const notify = () =>  toast.success("review added", {
     position: toast.POSITION.TOP_CENTER
   });
-  const { title, _id, img, price, description } = useLoaderData();
+  const data =useLoaderData()
+  const { title, _id, img, price, description } = data;
   const [users, setUsers] = useState([]);
+  const[update,setUpdate]=useState(false)
+  let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -32,6 +37,7 @@ const ServiceDetails = () => {
       email,
       phone,
       message,
+      timeset:date+time
     };
     fetch("http://localhost:4001/reviews", {
       method: "POST",
@@ -45,6 +51,7 @@ const ServiceDetails = () => {
         if (data.acknowledged) {
           // alert("Review  placed");
           notify()
+          setUpdate(!update)
           form.reset();
         }
         console.log(data);
@@ -55,20 +62,21 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:4001/reviews/${_id}`)
+    fetch(`http://localhost:4001/reviews/${data?._id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
         setUsers(data)
       });
-  }, []);
+  }, [data?._id,update]);
 
 
   return (
     <div className="w-5/6 mx-auto">
       <div className="reviews">
       {
-        users?.map(userdata => <AllReview key={userdata._id} userdata={userdata}></AllReview>)
+         users?.map(userdata => <AllReview key={userdata._id} userdata={userdata}></AllReview>)
+        
       }
       </div>
       <div>

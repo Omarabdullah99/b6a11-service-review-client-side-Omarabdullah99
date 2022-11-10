@@ -7,7 +7,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-  const provider = new GoogleAuthProvider();
+  
    const {logIn,googleSignIn} = useContext(AuthContext)
    const [error,setError]=useState('')
    const [loader,setLoader]=useState(false)
@@ -18,15 +18,30 @@ const Login = () => {
    const from= location.state?.from?.pathname || '/'
 
    const handleGoogleSignIn =()=>{
-    googleSignIn(provider)
+    googleSignIn()
     .then(result =>{
       const user=result.user;
-      console.log(user)
+      const currentUser={
+        email:user.email
+      }
+     
+      fetch('http://localhost:4001/jwt',{
+        method:'POST',
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify(currentUser)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        
+        localStorage.setItem('CookingToken',data.token)
+      })
      
       navigate(from, {replace:true})
      
     })
-    .cathc(error => console.error(error))
+    .catch(error => console.error(error))
   }
 
     const handleSubmit=(event)=>{
@@ -39,14 +54,33 @@ const Login = () => {
 
         logIn(email,password)
         .then((userCredential) => {
+
           // Signed in 
           const user = userCredential.user;
+          const currentUser={
+            email:user.email
+          }
+          console.log(currentUser)
+
+          //get jwt token
+          fetch('http://localhost:4001/jwt',{
+            method:'POST',
+            headers:{
+              "content-type":"application/json"
+            },
+            body:JSON.stringify(currentUser)
+          })
+          .then(res => res.json())
+          .then(data =>{
+            console.log(data.token)
+            localStorage.setItem('CookingToken',data.token)
+          })
          
           console.log(user)
           setLoader(false)
           setError('')
           form.reset()
-          navigate(from, {replace:true})
+          // navigate(from, {replace:true})
            
           // ...
         })

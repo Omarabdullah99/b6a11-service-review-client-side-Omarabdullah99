@@ -12,16 +12,7 @@ const Header = () => {
     .then(()=> {})
     .catch(error => console.log(error))
 }
-  // {
-  //   user?.displayName ? 
-  //   <div>
-  //   <h1>{user.displayName}</h1>
-  //   </div>
-  //   :
-  //   <div>
-  //   <h1>nai</h1>
-  //   </div>
-  // }
+
     return (
       <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -36,12 +27,12 @@ const Header = () => {
        
       </ul>
     </div>
-   <Link><h1 className='text-5xl'>Daisiui</h1></Link>
+   <Link><h1 className='text-xl'>Daisiui</h1></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
     <Link to='/'> <li>Home</li></Link>
-    <Link to='/services'> <li>Services</li></Link>
+    <Link to='/services'> <li className='mx-5'>Services</li></Link>
     <Link to='/blog'> <li>Blog</li></Link>
     </ul>
   </div>
@@ -50,7 +41,7 @@ const Header = () => {
     user?.uid ?
     <div>
     <button onClick={handleLogOut}>Logout</button>
-    <Link to='/myreview'><button>MyReview</button></Link>
+    <Link to='/myreview'><button className='mx-1 lg:mx-5'>MyReview</button></Link>
     <Link to='/addservices'><button>AddServices</button></Link>
     </div>
     :

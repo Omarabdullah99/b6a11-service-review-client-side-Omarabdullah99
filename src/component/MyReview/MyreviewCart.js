@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const MyreviewCart = ({review,handleDelet}) => {
     console.log(review)
     return (
-        <div className='flex gap-x-10 items-center my-10'>
+        <div className='  flex gap-x-10 items-center my-10'>
             <div className="button">
             <button onClick={()=> handleDelet(review._id)} className="btn btn-error">Delete</button>
             </div>
