@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import logo from '../../assest/assignmet11logo.jpg'
 
 const Header = () => {
   const {user,logOut} = useContext(AuthContext)
@@ -27,16 +28,16 @@ const Header = () => {
        
       </ul>
     </div>
-   <Link><h1 className='text-xl'>Daisiui</h1></Link>
+   <Link to='/'><h1  className='text-xl italic flex items-center md:text-2xl'><span><img src={logo} alt="logo" className='w-44' /></span> Rosui Ghor </h1></Link> 
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal p-0">
+    <ul className="menu menu-horizontal p-0 text-2xl">
     <Link to='/'> <li>Home</li></Link>
     <Link to='/services'> <li className='mx-5'>Services</li></Link>
     <Link to='/blog'> <li>Blog</li></Link>
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end md:text-2xl">
    {
     user?.uid ?
     <div>
