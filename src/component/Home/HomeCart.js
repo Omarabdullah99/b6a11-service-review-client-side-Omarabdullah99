@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-// <p>{service.description.slice(0,100)}</p>
+
 
 const HomeCart = ({service}) => {
     return (
@@ -14,7 +14,7 @@ const HomeCart = ({service}) => {
 
        <PhotoProvider>
       <PhotoView src={service.img}>
-        <img src={service.img} alt="" />
+        <img src={service.img} alt=""  className='w-64 rounded-lg '/>
       </PhotoView>
     </PhotoProvider>
       
